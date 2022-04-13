@@ -1,5 +1,4 @@
 //importaciones
-
 import express from "express";
 import webpack from "webpack";
 import webpackDevMiddleware from "webpack-dev-middleware"
@@ -11,9 +10,12 @@ const app = express();
 //configurar servidor
 app.set("port", process.env.PORT || 3000)
 
+//middlewares
+app.use(webpackDevMiddleware(webpack(webpackConfig))); 
+
 //rutas
 app.get("/", (req,res)=>{
-    res.send("hola");
+    res.send("holaa");
 })
 app.get("/api",(req,res)=>{
     res.json({api:"funciona"});
